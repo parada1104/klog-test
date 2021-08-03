@@ -1,15 +1,24 @@
-import useForm from "../components/hooks/useForm";
-import IFormValidator from "../components/interfaces/forms/FormValidator";
-import ISearchForm from "../components/interfaces/forms/SearchForm";
-import { ObjectEntries } from "../components/interfaces/types/entriesType";
 import Container from "../components/layouts/Container";
 import SearchForm from "../components/searchForm";
+import ImageProvider from "../components/context/imagesContext";
 
-export default function Home() {
+export default function Home(props) {
   return (
-    <Container title="Klog test - index">
-      <h2>Bienvenido</h2>
-      <SearchForm />
-    </Container>
+    <ImageProvider accessKey={props.accessKey}>
+      <Container title="Klog test - index">
+        <h2>Bienvenido</h2>
+        <SearchForm />
+      </Container>
+    </ImageProvider>
   );
+}
+
+export async function getServerSideProps() {
+  const accessKey = process.env.UNSPLASH_ACCESS_KEY;
+  console.log(accessKey);
+  return {
+    props: {
+      accessKey,
+    },
+  };
 }

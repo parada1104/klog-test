@@ -1,5 +1,8 @@
-import { Photo } from "../types/PhotosType";
+import IPhoto from "../photo/IPhoto";
 
 export default interface ImagesContextInterface {
-  images: Photo[]
+  photos: IPhoto[]
+  loading: boolean
+  error: any
+  searchPhotos(query: string): any
 }
