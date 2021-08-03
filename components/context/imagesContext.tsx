@@ -13,7 +13,7 @@ export interface ImageProviderProps {
   accessKey: string;
 }
 const ImageProvider = (props: ImageProviderProps) => {
-  const [photos, setPhotos] = useState<IPhoto[]>([]);
+  const [photos, setPhotos] = useState<IPhoto[] | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<any>(undefined);
 
@@ -40,12 +40,13 @@ const ImageProvider = (props: ImageProviderProps) => {
       setPhotos(photos);
       setLoading(false);
     } catch (err) {
+      setLoading(false);
       console.log(err);
     }
   };
 
   const data: ImagesContextInterface = {
-    photos,
+    photos: photos as IPhoto[],
     loading,
     error,
     searchPhotos,

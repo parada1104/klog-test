@@ -17,15 +17,22 @@ const PhotosGallery = () => {
     );
   }
 
-  return (
-    <div className="gallery container">
-      {photos.length > 0 ? (
-        photos.map((photo, index) => <Photo key={index} photo={photo} />)
-      ) : (
-        <p></p>
-      )}
-    </div>
-  );
+  if (photos) {
+    return (
+      <>
+        {photos.length > 0 ? (
+          <div className="gallery container">
+            {photos.map((photo, index) => (
+              <Photo key={index} photo={photo} />
+            ))}
+          </div>
+        ) : (
+          <p>No se encontraron imagenes</p>
+        )}
+      </>
+    );
+  }
+  return <p></p>;
 };
 
 export default PhotosGallery;

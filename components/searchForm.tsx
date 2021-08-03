@@ -32,23 +32,21 @@ function SearchForm(props: SearchFormProps) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="text"
-            name="keyword"
-            id="keyword_input"
-            value={form.keyword}
-            onChange={handleChange}
-            placeholder="Buscar imagenes..."
-          />
-        </div>
-        <div>
-          <input type="submit" value="Buscar" />
-        </div>
-      </form>
-    </div>
+    <form className="d-flex" onSubmit={handleSubmit}>
+      <input
+        className="form-control me-2"
+        type="search"
+        placeholder="Buscar Imagenes"
+        aria-label="Search"
+        name="keyword"
+        id="keyword_input"
+        value={form.keyword}
+        onChange={handleChange}
+      />
+      <button className="btn btn-outline-success" type="submit">
+        Buscar
+      </button>
+    </form>
   );
 }
 
