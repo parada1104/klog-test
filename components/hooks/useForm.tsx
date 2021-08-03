@@ -22,4 +22,12 @@ const useForm = (
     e.preventDefault();
     console.log("estoy haciendo un submit");
   };
+
+  return {
+    form,
+    errors,
+    loading,
+    handleChange,
+    handleSubmit,
+  };
 };
