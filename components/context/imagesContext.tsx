@@ -31,11 +31,12 @@ const ImageProvider = (props: ImageProviderProps) => {
       const res = await api.search.getPhotos({ ...defaultQuery, query });
       const photos: IPhoto[] = res.response?.results.reduce(
         (acc: any, el: any): IPhoto[] => {
-          return [...acc, { urls: el.urls }];
+          return [...acc, { urls: el.urls, alt: el.alt_description }];
         },
         []
       ) as IPhoto[];
       console.log(photos);
+      setPhotos(photos);
     } catch (err) {
       console.log(err);
     }

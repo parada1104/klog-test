@@ -1,13 +1,19 @@
 import Container from "../components/layouts/Container";
 import SearchForm from "../components/searchForm";
 import ImageProvider from "../components/context/imagesContext";
+import PhotosGallery from "../components/photos/PhotosGallery";
 
-export default function Home(props) {
+export interface IndexProps {
+  accessKey: string;
+}
+
+export default function Home(props: IndexProps) {
   return (
     <ImageProvider accessKey={props.accessKey}>
       <Container title="Klog test - index">
         <h2>Bienvenido</h2>
         <SearchForm />
+        <PhotosGallery />
       </Container>
     </ImageProvider>
   );
