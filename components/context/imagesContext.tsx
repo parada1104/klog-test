@@ -22,6 +22,7 @@ const ImageProvider = (props: ImageProviderProps) => {
   });
 
   const searchPhotos = async (query: string) => {
+    setLoading(true);
     const defaultQuery: UnsplashRequest = {
       query: "",
       page: 1,
@@ -37,6 +38,7 @@ const ImageProvider = (props: ImageProviderProps) => {
       ) as IPhoto[];
       console.log(photos);
       setPhotos(photos);
+      setLoading(false);
     } catch (err) {
       console.log(err);
     }

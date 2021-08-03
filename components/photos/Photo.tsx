@@ -11,7 +11,7 @@ const Photo = (props: PhotoProps) => {
   return (
     <div className="photo-container">
       <Image
-        src={photo.urls.regular}
+        src={photo.urls.small}
         alt={photo.alt}
         width={100}
         height={100}

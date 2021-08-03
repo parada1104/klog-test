@@ -13,7 +13,7 @@ const Container = (props: Props): React.ReactElement => {
       <Head>
         <title>{title}</title>
       </Head>
-      <div className="container">{props.children}</div>
+      <div>{props.children}</div>
     </div>
   );
 };
